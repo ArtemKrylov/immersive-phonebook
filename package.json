@@ -1,8 +1,8 @@
 {
-  "name": "react-typescript-chakra_ui-template",
+  "name": "goit-react-hw-08-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ArtemKrylov.github.io/react-typescript-chakra_ui-template/",
+  "homepage": "https://ArtemKrylov.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
     "@chakra-ui/react": "^2.5.2",
     "@emotion/react": "^11.10.6",
