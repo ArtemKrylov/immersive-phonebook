@@ -1,11 +1,10 @@
 import React, { FC } from "react";
 import { Container } from "../App/App.styled";
 import SectionStyled from "./Section.styled";
-import { Node } from "typescript";
 
 interface SectionProps {
-  title: string;
-  children: Node;
+  title?: string;
+  children: any;
 }
 
 const Section: FC<SectionProps> = ({ title, children }) => {
