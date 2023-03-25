@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { useAppSelector } from "hooks/useAppSelector";
 import React from "react";
 import { NavLink } from "react-router-dom";
@@ -9,12 +9,28 @@ const Navigation = () => {
 
   return (
     <Flex as="nav" gap="2" className="navigation header__navigation">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/contacts">Contacts</NavLink>
+      <NavLink to="/">
+        <Text as={"b"} fontSize="lg">
+          Home
+        </Text>
+      </NavLink>
+      <NavLink to="/contacts">
+        <Text as={"b"} fontSize="lg">
+          Contacts
+        </Text>
+      </NavLink>
       {!isLogged && (
         <>
-          <NavLink to="/register">Register</NavLink>
-          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/register">
+            <Text as={"b"} fontSize="lg">
+              Register
+            </Text>
+          </NavLink>
+          <NavLink to="/login">
+            <Text as={"b"} fontSize="lg">
+              Login
+            </Text>
+          </NavLink>
         </>
       )}
     </Flex>
