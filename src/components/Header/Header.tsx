@@ -6,6 +6,7 @@ import { useAppSelector } from "hooks/useAppSelector";
 
 import Navigation from "components/Navigation/Navigation";
 import { useAppDispatch } from "hooks/useAppDispatch";
+import { Container, Flex } from "@chakra-ui/react";
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -21,11 +22,24 @@ const Header: React.FC = () => {
   }
 
   return (
-    <div>
-      <Navigation />
-      {token && <p>Hello {name}!</p>}
-      {token && <button onClick={onLogoutBtnClick}>Logout</button>}
-    </div>
+    <Container className="container" pt={2} pb={2}>
+      <Flex
+        className="header"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        gap="2"
+      >
+        <Navigation />
+
+        {token && (
+          <Flex gap="2">
+            <p>Hello {name}!</p>{" "}
+            <button onClick={onLogoutBtnClick}>Logout</button>
+          </Flex>
+        )}
+      </Flex>
+    </Container>
   );
 };
 

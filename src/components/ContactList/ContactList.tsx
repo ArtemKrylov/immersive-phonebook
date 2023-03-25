@@ -1,4 +1,5 @@
 import ContactItem from "components/ContactItem/ContactItem";
+import SkeletonContacts from "components/Skeletons/ContactsSkeleton";
 import { useAppSelector } from "hooks/useAppSelector";
 import { Contact } from "models/contact";
 import React from "react";
@@ -13,6 +14,7 @@ const ContactList: React.FC = () => {
 
   return (
     <ul className={""}>
+      {isLoading && <SkeletonContacts />}
       {contacts.length > 0 &&
         contacts.map(({ id = "", name, number }) => (
           <ContactItem key={id} id={id} name={name} number={number} />

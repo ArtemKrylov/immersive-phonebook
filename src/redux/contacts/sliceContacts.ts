@@ -5,7 +5,9 @@ import { Contact } from "../../models/contact";
 import { addContact, deleteContact, fetchContacts } from "./operationsContacts";
 
 const extraActions = [addContact, deleteContact, fetchContacts];
-const getItems = (type: "pending" | "fulfilled" | "rejected") =>
+const getItems = (type: "pending" | "rejected") =>
+  extraActions.map((el) => el[type]);
+const getFulfilledItems = (type: "fulfilled") =>
   extraActions.map((el) => el[type]);
 
 export interface initialStateInterface {
@@ -30,46 +32,24 @@ const ContactsSlice = createSlice({
       .addCase(fetchContacts.fulfilled, (state, { payload }) => {
         state.data = payload;
       })
-      // .addCase(fetchContacts.pending, (state) => {
-      //   state.isLoading = true;
-      //   state.error = null;
-      // })
-      // .addCase(fetchContacts.rejected, (state, action) => {
-      //   state.isLoading = false;
-      //   if (action.payload !== undefined) {
-      //     state.error = action.payload;
-      //   }
-      // })
+
       //!Add contact
       .addCase(addContact.fulfilled, (state, { payload }) => {
         if (!payload) return;
         state.data = [payload, ...state.data];
         toast.success("Contact added!");
       })
-      // .addCase(addContact.pending, (state) => {
-      //   state.isLoading = true;
-      //   state.error = null;
-      // })
-      // .addCase(addContact.rejected, (state, action) => {
-      //   state.isLoading = false;
-      //   if (action.payload !== undefined) {
-      //     state.error = action.payload;
-      //   }
-      // })
+
       //!Delete contact
       .addCase(deleteContact.fulfilled, (state, { payload }) => {
         state.data = state.data.filter((contact) => contact.id !== payload.id);
       })
-      // .addCase(deleteContact.pending, (state) => {
-      //   state.isLoading = true;
-      //   state.error = null;
-      // })
-      // .addCase(deleteContact.rejected, (state, action) => {
-      //   state.isLoading = false;
-      //   if (action.payload !== undefined) {
-      //     state.error = action.payload;
-      //   }
-      // })
+
+      //!Fulfilled matcher
+      .addMatcher(isAnyOf(...getFulfilledItems("fulfilled")), (state) => {
+        state.isLoading = false;
+      })
+
       //!Pending matcher
       .addMatcher(isAnyOf(...getItems("pending")), (state) =>
         handlePending(state)
