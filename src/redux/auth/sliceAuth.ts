@@ -60,6 +60,7 @@ const AuthSlice = createSlice({
 
 function authFulfilled(state: AuthState, action: any) {
   const { user, token } = action.payload;
+  state.isLoading = false;
   state.user.name = user.name;
   state.user.email = user.email;
   state.token = token;
