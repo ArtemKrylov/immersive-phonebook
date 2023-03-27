@@ -23,7 +23,7 @@ import { useAppDispatch } from "hooks/useAppDispatch";
 import { deleteToken } from "redux/auth/sliceAuth";
 
 //layoutes and pages lazy loading
-import SharedLayout from "components/SharedLayout/SharedLayout";
+import SharedLayout from "layouts/SharedLayout/SharedLayout";
 const HomePage: React.FC = lazy(() => import("pages/HomePage/HomePage"));
 const RegisterPage: React.FC = lazy(
   () => import("pages/RegisterPage/RegisterPage")

@@ -7,7 +7,6 @@ interface AuthFormInterface {
 }
 
 const AuthForm: FC<AuthFormInterface> = ({ type }) => {
-  // const token: string | null = useAppSelector((state) => state.auth.token);
   const dispatch = useAppDispatch();
   const isRegisterForm: boolean = type === "register" ? true : false;
 
@@ -44,7 +43,6 @@ const AuthForm: FC<AuthFormInterface> = ({ type }) => {
               name="name"
               type={"text"}
               required
-              autoFocus
               placeholder="Enter your name"
               className="auth__input"
             />
@@ -56,7 +54,6 @@ const AuthForm: FC<AuthFormInterface> = ({ type }) => {
             name="email"
             type={"email"}
             required
-            autoFocus
             placeholder="Enter your email"
             className="auth__input"
           />

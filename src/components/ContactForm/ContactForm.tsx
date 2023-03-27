@@ -1,5 +1,6 @@
 import { addContact } from "redux/contacts/operationsContacts";
 import { useAppDispatch } from "hooks/useAppDispatch";
+import { Box, Container } from "@chakra-ui/react";
 
 const ContactForm = () => {
   const dispatch = useAppDispatch();
@@ -15,38 +16,42 @@ const ContactForm = () => {
   }
 
   return (
-    <form className={""} onSubmit={onContactFormSubmit}>
-      <label>
-        <p className="contactForm__label-text">Name</p>
-        <input
-          type="text"
-          className="contactForm__input"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          onChange={() => {}}
-          placeholder="Enter your name"
-          autoFocus
-        />
-      </label>
-      <label>
-        <p className="contactForm__label-text">Number</p>
-        <input
-          type="tel"
-          className="contactForm__input"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          onChange={() => {}}
-          placeholder="Enter your phone number"
-        />
-      </label>
-      <button type="submit" className="contactForm__button">
-        Add contact
-      </button>
-    </form>
+    <Box as="section" className="section section--contactForm">
+      <Container className="container">
+        <form className={"contactForm"} onSubmit={onContactFormSubmit}>
+          <label>
+            <p className="contactForm__label-text">Name</p>
+            <input
+              type="text"
+              className="contactForm__input"
+              name="name"
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
+              onChange={() => {}}
+              placeholder="Enter your name"
+              autoFocus
+            />
+          </label>
+          <label>
+            <p className="contactForm__label-text">Number</p>
+            <input
+              type="tel"
+              className="contactForm__input"
+              name="number"
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
+              onChange={() => {}}
+              placeholder="Enter your phone number"
+            />
+          </label>
+          <button type="submit" className="contactForm__button">
+            Add contact
+          </button>
+        </form>
+      </Container>
+    </Box>
   );
 };
 

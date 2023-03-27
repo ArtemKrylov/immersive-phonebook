@@ -1,38 +1,33 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { useAppSelector } from "hooks/useAppSelector";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { selectorLogged } from "redux/auth/selectorsAuth";
 
-const Navigation = () => {
-  const isLogged: boolean = Boolean(useAppSelector(selectorLogged));
+const Navigation: React.FC = () => {
+  // const isLogged: boolean = Boolean(useAppSelector(selectorLogged));
 
   return (
-    <Flex as="nav" gap="2" className="navigation header__navigation">
-      <NavLink to="/">
-        <Text as={"b"} fontSize="lg">
-          Home
-        </Text>
+    <Flex
+      as="nav"
+      gap={[2, 2, 4, 5]}
+      fontSize={"[12px,12px,16px,16px]"}
+      className="navigation header__navigation"
+    >
+      <NavLink to="/" className={"navigation__link"}>
+        <Text as={"b"}>Home</Text>
       </NavLink>
-      <NavLink to="/contacts">
-        <Text as={"b"} fontSize="lg">
-          Contacts
-        </Text>
+      <NavLink to="/contacts" className={"navigation__link"}>
+        <Text as={"b"}>Contacts</Text>
       </NavLink>
-      {!isLogged && (
+      {/* {!isLogged && (
         <>
-          <NavLink to="/register">
-            <Text as={"b"} fontSize="lg">
-              Register
-            </Text>
+          <NavLink to="/register" className={"navigation__link"}>
+            <Text as={"b"}>Register</Text>
           </NavLink>
-          <NavLink to="/login">
-            <Text as={"b"} fontSize="lg">
-              Login
-            </Text>
+          <NavLink to="/login" className={"navigation__link"}>
+            <Text as={"b"}>Login</Text>
           </NavLink>
         </>
-      )}
+      )} */}
     </Flex>
   );
 };
