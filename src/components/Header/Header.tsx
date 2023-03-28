@@ -20,6 +20,7 @@ import {
 import { NavLink, Link } from "react-router-dom";
 import ContainerComp from "components/Container/ContainerComp";
 import { ColorModeSwitcher } from "ColorModeSwitcher";
+import { NavLinkStyled } from "./Header.styled";
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -105,24 +106,26 @@ const Header: React.FC = () => {
                 alignItems="center"
                 gap={{ base: 1, md: 3, lg: 4 }}
               >
-                <NavLink to="/register" className={"navigation__link"}>
+                <NavLinkStyled to="/register" className={"navigation__link"}>
                   <Text
+                    className={"navigation__linkText"}
                     as={"b"}
                     _hover={{ color: "accent.300" }}
                     _focus={{ color: "accent.300" }}
                   >
                     Register
                   </Text>
-                </NavLink>
-                <NavLink to="/login" className={"navigation__link"}>
+                </NavLinkStyled>
+                <NavLinkStyled to="/login" className={"navigation__link"}>
                   <Text
+                    className={"navigation__linkText"}
                     as={"b"}
                     _hover={{ color: "accent.300" }}
                     _focus={{ color: "accent.300" }}
                   >
                     Login
                   </Text>
-                </NavLink>
+                </NavLinkStyled>
               </Flex>
             )}
           </HStack>
