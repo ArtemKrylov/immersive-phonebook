@@ -2,7 +2,7 @@ import { Container } from "@chakra-ui/react";
 import React from "react";
 
 interface ContainerCompProps {
-  children: any;
+  children?: any;
 }
 
 const ContainerComp: React.FC<ContainerCompProps> = ({ children }) => {

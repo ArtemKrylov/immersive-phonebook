@@ -1,9 +1,12 @@
 import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLinkStyled } from "./Navigation.styled";
 
 const Navigation: React.FC = () => {
-  // const isLogged: boolean = Boolean(useAppSelector(selectorLogged));
+  const pages: { name: string; path: string }[] = [
+    { name: "Home", path: "/" },
+    { name: "Contacts", path: "/contacts" },
+  ];
 
   return (
     <Flex
@@ -12,22 +15,22 @@ const Navigation: React.FC = () => {
       fontSize={"[12px,12px,16px,16px]"}
       className="navigation header__navigation"
     >
-      <NavLink to="/" className={"navigation__link"}>
-        <Text as={"b"}>Home</Text>
-      </NavLink>
-      <NavLink to="/contacts" className={"navigation__link"}>
-        <Text as={"b"}>Contacts</Text>
-      </NavLink>
-      {/* {!isLogged && (
-        <>
-          <NavLink to="/register" className={"navigation__link"}>
-            <Text as={"b"}>Register</Text>
-          </NavLink>
-          <NavLink to="/login" className={"navigation__link"}>
-            <Text as={"b"}>Login</Text>
-          </NavLink>
-        </>
-      )} */}
+      {pages.map((page) => (
+        <NavLinkStyled
+          key={page.path}
+          to={page.path}
+          className={"navigation__link"}
+        >
+          <Text
+            className="navigation__linkText"
+            as={"b"}
+            _hover={{ color: "accent.300" }}
+            _focus={{ color: "accent.300" }}
+          >
+            {page.name}
+          </Text>
+        </NavLinkStyled>
+      ))}
     </Flex>
   );
 };

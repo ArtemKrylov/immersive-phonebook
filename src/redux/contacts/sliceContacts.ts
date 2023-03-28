@@ -17,7 +17,7 @@ export interface initialStateInterface {
 }
 
 const initialState: initialStateInterface = {
-  data: [{ name: "test", id: "0", number: "1111111" }],
+  data: [],
   isLoading: false,
   error: null,
 };

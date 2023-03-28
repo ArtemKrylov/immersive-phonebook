@@ -1,5 +1,5 @@
-import { Container } from "@chakra-ui/react";
 import AuthForm from "components/AuthForm/AuthForm";
+import ContainerComp from "components/Container/ContainerComp";
 import Loader from "components/Loader/Loader";
 import { useAppSelector } from "hooks/useAppSelector";
 import React, { useEffect } from "react";
@@ -18,9 +18,9 @@ const LoginPage: React.FC = () => {
   }, [isLogged, navigate]);
 
   return (
-    <Container centerContent pt={3} pb={3}>
+    <ContainerComp>
       {isLoading ? <Loader /> : <AuthForm type="login" />}
-    </Container>
+    </ContainerComp>
   );
 };
 

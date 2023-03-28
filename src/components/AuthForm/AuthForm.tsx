@@ -1,3 +1,11 @@
+import {
+  Button,
+  Flex,
+  FormLabel,
+  Heading,
+  Input,
+  Text,
+} from "@chakra-ui/react";
 import { useAppDispatch } from "hooks/useAppDispatch";
 import React, { FC } from "react";
 import { userLogin, userSignUp } from "redux/auth/operationsAuth";
@@ -34,43 +42,120 @@ const AuthForm: FC<AuthFormInterface> = ({ type }) => {
 
   return (
     <>
-      <h2 className="auth__heading">{isRegisterForm ? "Sign up" : "Login"}</h2>
+      <Heading
+        className="auth__heading"
+        fontSize={"26px"}
+        mb={2}
+        mt={2}
+        textAlign="center"
+      >
+        {isRegisterForm ? "Sign up" : "Login"}
+      </Heading>
       <form onSubmit={handleAuthSubmit} className="auth__form">
-        {isRegisterForm && (
-          <label className="auth__label">
-            <p className="auth__label-text">Name</p>
-            <input
-              name="name"
-              type={"text"}
+        <Flex flexDir={"column"} alignItems="center" justifyContent="center">
+          {isRegisterForm && (
+            <FormLabel
+              className="auth__label"
+              cursor={"pointer"}
+              mb={3}
+              _hover={{ color: "accent.500" }}
+              _focus={{ color: "accent.500" }}
+            >
+              <Text className="auth__label-text" mb={1}>
+                Name
+              </Text>
+              <Input
+                name="name"
+                type={"text"}
+                required
+                placeholder="Enter your name"
+                className="auth__input"
+                w={{ md: "400px", lg: "500px" }}
+                _hover={{
+                  borderColor: "accent2.700",
+                  _placeholder: { color: "accent.500" },
+                }}
+                _focus={{
+                  borderColor: "accent2.700",
+                  _placeholder: { color: "accent.500" },
+                }}
+              />
+            </FormLabel>
+          )}
+          <FormLabel
+            className="auth__label"
+            cursor={"pointer"}
+            mb={3}
+            _hover={{ color: "accent.500" }}
+            _focus={{ color: "accent.500" }}
+          >
+            <Text className="auth__label-text" mb={1}>
+              Email
+            </Text>
+            <Input
+              name="email"
+              type={"email"}
               required
-              placeholder="Enter your name"
+              placeholder="Enter your email"
               className="auth__input"
+              w={{ md: "400px", lg: "500px" }}
+              _hover={{
+                borderColor: "accent2.700",
+                _placeholder: { color: "accent.500" },
+              }}
+              _focus={{
+                borderColor: "accent2.700",
+                _placeholder: { color: "accent.500" },
+              }}
             />
-          </label>
-        )}
-        <label className="auth__label">
-          <p className="auth__label-text">Email</p>
-          <input
-            name="email"
-            type={"email"}
-            required
-            placeholder="Enter your email"
-            className="auth__input"
-          />
-        </label>
-        <label className="auth__label">
-          <p className="auth__label-text">Password</p>
-          <input
-            name="password"
-            type={"password"}
-            required
-            placeholder="Enter your password"
-            className="auth__input"
-          />
-        </label>
-        <button type="submit" className="auth__submit-btn">
-          {isRegisterForm ? "Sign up" : "Login"}
-        </button>
+          </FormLabel>
+          <FormLabel
+            className="auth__label"
+            cursor={"pointer"}
+            mb={3}
+            _hover={{ color: "accent.500" }}
+            _focus={{ color: "accent.500" }}
+          >
+            <Text className="auth__label-text" mb={1}>
+              Password
+            </Text>
+            <Input
+              name="password"
+              type={"password"}
+              required
+              placeholder="Enter your password"
+              className="auth__input"
+              w={{ md: "400px", lg: "500px" }}
+              _hover={{
+                borderColor: "accent2.700",
+                _placeholder: { color: "accent.500" },
+              }}
+              _focus={{
+                borderColor: "accent2.700",
+                _placeholder: { color: "accent.500" },
+              }}
+            />
+          </FormLabel>
+
+          <Button
+            type="submit"
+            className="auth__submit-btn"
+            mt={2}
+            colorScheme={"purple"}
+            _hover={{
+              color: "purple.700",
+              bgColor: "white",
+              border: "1px solid purple",
+            }}
+            _focus={{
+              color: "purple.700",
+              bgColor: "white",
+              border: "1px solid purple",
+            }}
+          >
+            {isRegisterForm ? "Sign up" : "Login"}
+          </Button>
+        </Flex>
       </form>
     </>
   );

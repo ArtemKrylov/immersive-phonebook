@@ -30,8 +30,13 @@ const ContactItem: React.FC<ContactItemInterface> = ({ id, name, number }) => {
     <ListItem
       className="contactItem"
       p={3}
-      border="1px dotted "
+      border="1px dotted"
+      borderColor="accent.300"
       borderRadius={"md"}
+      maxW={{ md: "300px", lg: "500px" }}
+      minW={"250px"}
+      _hover={{ borderColor: "white", transform: "translate(1px, 1px)" }}
+      _focus={{ borderColor: "white", transform: "translate(1px, 1px)" }}
     >
       <Flex
         className="contactItem__name"
@@ -54,6 +59,17 @@ const ContactItem: React.FC<ContactItemInterface> = ({ id, name, number }) => {
           onClick={handleDeleteBtnClick}
           leftIcon={<DeleteIcon />}
           size={{ base: "xs", md: "md" }}
+          colorScheme={"purple"}
+          _hover={{
+            color: "purple.700",
+            bgColor: "white",
+            border: "1px solid purple",
+          }}
+          _focus={{
+            color: "purple.700",
+            bgColor: "white",
+            border: "1px solid purple",
+          }}
         >
           Delete
         </Button>

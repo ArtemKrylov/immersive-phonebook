@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container } from "@chakra-ui/react";
 import { selectorLoadingAuth, selectorLogged } from "redux/auth/selectorsAuth";
 
 import { useAppSelector } from "hooks/useAppSelector";
 import AuthForm from "components/AuthForm/AuthForm";
 import Loader from "components/Loader/Loader";
+import ContainerComp from "components/Container/ContainerComp";
 
 const RegisterPage: React.FC = () => {
   const isLoading: boolean = useAppSelector(selectorLoadingAuth);
@@ -19,9 +19,9 @@ const RegisterPage: React.FC = () => {
   }, [isLogged, navigate]);
 
   return (
-    <Container>
+    <ContainerComp>
       {isLoading ? <Loader /> : <AuthForm type="register" />}
-    </Container>
+    </ContainerComp>
   );
 };
 

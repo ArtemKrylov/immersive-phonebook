@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 
 const SharedLayout: FC = () => {
   return (
-    <Box className="app" minH={"100vh"}>
+    <Box className="app" minH={"100vh"} display="flex" flexDir={"column"}>
       <Header />
       <Suspense fallback={<Loader />}>
         <Outlet />

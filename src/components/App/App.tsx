@@ -13,7 +13,6 @@ import {
   // VStack,
   // Code,
   // Grid,
-  theme,
 } from "@chakra-ui/react";
 import { Toaster } from "react-hot-toast";
 
@@ -24,6 +23,7 @@ import { deleteToken } from "redux/auth/sliceAuth";
 
 //layoutes and pages lazy loading
 import SharedLayout from "layouts/SharedLayout/SharedLayout";
+import { theme } from "chakra/theme";
 const HomePage: React.FC = lazy(() => import("pages/HomePage/HomePage"));
 const RegisterPage: React.FC = lazy(
   () => import("pages/RegisterPage/RegisterPage")
