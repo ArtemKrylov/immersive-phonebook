@@ -17,7 +17,7 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ContainerComp from "components/Container/ContainerComp";
 import { ColorModeSwitcher } from "ColorModeSwitcher";
 import { NavLinkStyled } from "./Header.styled";
