@@ -89,3 +89,19 @@ export const userLogout = createAsyncThunk<
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+//!Update
+export const userUpdate = createAsyncThunk<
+  User,
+  string,
+  { rejectValue: string }
+>("auth/update", async (token, thunkAPI) => {
+  try {
+    setAuthHeader(token);
+    const response = await axios.get("/users/current");
+    return response.data;
+  } catch (error: any) {
+    toast.error(error.message);
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

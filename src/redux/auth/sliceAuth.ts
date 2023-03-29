@@ -1,8 +1,13 @@
 import { createSlice, isAnyOf, PayloadAction } from "@reduxjs/toolkit";
-import { userLogin, userLogout, userSignUp } from "./operationsAuth";
+import {
+  userLogin,
+  userLogout,
+  userSignUp,
+  userUpdate,
+} from "./operationsAuth";
 
-const extraActions = [userLogin, userLogout, userSignUp];
-const extraLoginActions = [userLogin, userSignUp];
+const extraActions = [userLogin, userLogout, userSignUp, userUpdate];
+const extraLoginActions = [userLogin, userSignUp, userUpdate];
 const getActions = (type: "pending" | "rejected") =>
   extraActions.map((action) => action[type]);
 const getLoginActions = (type: "fulfilled") =>
