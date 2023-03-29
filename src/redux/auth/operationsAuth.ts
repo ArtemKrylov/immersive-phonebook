@@ -92,14 +92,14 @@ export const userLogout = createAsyncThunk<
 
 //!Update
 export const userUpdate = createAsyncThunk<
-  User,
+  { user: User; token: string },
   string,
   { rejectValue: string }
 >("auth/update", async (token, thunkAPI) => {
   try {
     setAuthHeader(token);
     const response = await axios.get("/users/current");
-    return response.data;
+    return { user: response.data, token };
   } catch (error: any) {
     toast.error(error.message);
     return thunkAPI.rejectWithValue(error.message);
