@@ -4,16 +4,16 @@ import {
   Center,
   Divider,
   Flex,
-  ListIcon,
+  Icon,
+  IconButton,
   ListItem,
-  Spacer,
   Text,
 } from "@chakra-ui/react";
 import { MdContactPhone } from "react-icons/md";
 
 import { useAppDispatch } from "hooks/useAppDispatch";
 import { deleteContact } from "redux/contacts/operationsContacts";
-import { DeleteIcon } from "@chakra-ui/icons";
+import { DeleteIcon, PhoneIcon } from "@chakra-ui/icons";
 
 interface ContactItemInterface {
   id: string;
@@ -29,35 +29,62 @@ const ContactItem: React.FC<ContactItemInterface> = ({ id, name, number }) => {
   return (
     <ListItem
       className="contactItem"
-      p={3}
+      position={"relative"}
+      p={5}
       border="1px dotted"
       borderColor="accent.300"
       borderRadius={"md"}
       maxW={{ md: "300px", lg: "500px" }}
-      minW={"250px"}
+      w="100%"
       _hover={{ borderColor: "white", transform: "translate(1px, 1px)" }}
       _focus={{ borderColor: "white", transform: "translate(1px, 1px)" }}
     >
+      <Icon as={MdContactPhone} m={0} position="absolute" top={0} left={0} />
       <Flex
         className="contactItem__name"
         alignItems={"center"}
         justify={"space-between"}
-        flexWrap="wrap"
+        flexDirection="column"
         mb={3}
+        gap={3}
       >
-        <ListIcon as={MdContactPhone} m={0} />
-        <Text ml="10px">{name}:</Text>
-        <Spacer />
+        <Text maxW={"70%"} display={"inline-block"} isTruncated>
+          {name}:
+        </Text>
+
         <Text className="contactItem__number">{number}</Text>
       </Flex>
       <Divider borderColor={"purple.700"} mb={3} />
+      <IconButton
+        type="button"
+        aria-label="delete"
+        className="contactItem__button"
+        w={"15px"}
+        h={"15px"}
+        position="absolute"
+        top={0}
+        right={0}
+        value={id}
+        onClick={handleDeleteBtnClick}
+        icon={<DeleteIcon />}
+        size={{ base: "xs", md: "md" }}
+        colorScheme={"purple"}
+        _hover={{
+          color: "purple.700",
+          bgColor: "white",
+          border: "1px solid purple",
+        }}
+        _focus={{
+          color: "purple.700",
+          bgColor: "white",
+          border: "1px solid purple",
+        }}
+      ></IconButton>
       <Center>
         <Button
           type="button"
-          className="contactItem__button"
-          value={id}
-          onClick={handleDeleteBtnClick}
-          leftIcon={<DeleteIcon />}
+          className="contactItem__button--call"
+          leftIcon={<PhoneIcon />}
           size={{ base: "xs", md: "md" }}
           colorScheme={"purple"}
           _hover={{
@@ -71,7 +98,7 @@ const ContactItem: React.FC<ContactItemInterface> = ({ id, name, number }) => {
             border: "1px solid purple",
           }}
         >
-          Delete
+          <a href={`tel:${number}`}>Call</a>
         </Button>
       </Center>
     </ListItem>

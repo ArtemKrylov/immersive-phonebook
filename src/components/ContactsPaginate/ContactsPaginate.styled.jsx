@@ -13,7 +13,14 @@ export const ContactsPaginateStyled = styled.div`
         color: #805ad5;
       }
       &.disabled {
-        opacity: 0;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        clip: rect(0 0 0 0);
       }
     }
   }

@@ -45,8 +45,11 @@ const ContactList: React.FC<ContactListInterface> = ({ query }) => {
   return (
     <Box as="section" className="section section--contactList">
       <ContainerComp>
-        <List className={"contactList"} p={3} spacing={2}>
-          <SimpleGrid minChildWidth={"250px"} spacing={{ base: "2", md: "4" }}>
+        <List className={"contactList"} spacing={2} mb={"20px"}>
+          <SimpleGrid
+            minChildWidth={{ base: "270px", md: "300px" }}
+            spacing={{ base: "2", md: "4" }}
+          >
             {isLoading && <SkeletonContacts />}
             {shownContacts.length > 0 &&
               shownContacts.map(({ id = "", name, number }) => (
@@ -55,10 +58,10 @@ const ContactList: React.FC<ContactListInterface> = ({ query }) => {
                 </Center>
               ))}
           </SimpleGrid>
-          {pageCount > 1 && (
-            <ContactsPaginate pageCount={pageCount} setPage={setPage} />
-          )}
         </List>
+        {pageCount > 1 && (
+          <ContactsPaginate pageCount={pageCount} setPage={setPage} />
+        )}
       </ContainerComp>
     </Box>
   );
