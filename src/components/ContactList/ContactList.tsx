@@ -50,16 +50,19 @@ const ContactList: React.FC<ContactListInterface> = ({ query }) => {
             minChildWidth={{ base: "270px", md: "300px" }}
             spacing={{ base: "2", md: "4" }}
           >
-            {isLoading && <SkeletonContacts />}
-            {shownContacts.length > 0 &&
+            {isLoading ? (
+              <SkeletonContacts />
+            ) : (
+              shownContacts.length > 0 &&
               shownContacts.map(({ id = "", name, number }) => (
                 <Center key={id}>
                   <ContactItem id={id} name={name} number={number} />
                 </Center>
-              ))}
+              ))
+            )}
           </SimpleGrid>
         </List>
-        {pageCount > 1 && (
+        {pageCount > 1 && !isLoading && (
           <ContactsPaginate pageCount={pageCount} setPage={setPage} />
         )}
       </ContainerComp>

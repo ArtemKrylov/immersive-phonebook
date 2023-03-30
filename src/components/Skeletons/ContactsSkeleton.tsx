@@ -3,7 +3,7 @@ import React from "react";
 
 const ContactsSkeleton: React.FC = () => {
   return (
-    <Stack p="[5,null,10,20]">
+    <Stack p="[5,null,10,20]" w={"100%"}>
       <Skeleton h="8" startColor="blue.800" endColor="gray.300" />
       <Skeleton h="8" startColor="blue.500" endColor="gray.300" />
       <Skeleton h="8" startColor="cyan.500" endColor="gray.300" />
