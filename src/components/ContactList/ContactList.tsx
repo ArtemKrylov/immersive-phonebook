@@ -5,7 +5,7 @@ import ContainerComp from "components/Container/ContainerComp";
 import SkeletonContacts from "components/Skeletons/ContactsSkeleton";
 import { useAppSelector } from "hooks/useAppSelector";
 import { Contact } from "models/contact";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import {
   selectContacts,
@@ -33,14 +33,18 @@ const ContactList: React.FC<ContactListInterface> = ({ query }) => {
   const pageCount: number = Math.ceil(
     filteredContacts.length / CONTACTS_PER_PAGE
   );
+  const filteredPageContacts: Contact[] = useMemo(
+    () =>
+      filteredContacts.slice(
+        0 + CONTACTS_PER_PAGE * (page - 1),
+        9 + CONTACTS_PER_PAGE * (page - 1) + 1
+      ),
+    [filteredContacts, page]
+  );
 
   useEffect(() => {
-    const filteredPageContacts: Contact[] = filteredContacts.slice(
-      0 + CONTACTS_PER_PAGE * (page - 1),
-      9 + CONTACTS_PER_PAGE * (page - 1) + 1
-    );
     setShownContacts(filteredPageContacts);
-  }, [page, filteredContacts]);
+  }, [filteredPageContacts]);
 
   return (
     <Box as="section" className="section section--contactList">
