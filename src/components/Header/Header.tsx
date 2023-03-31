@@ -17,13 +17,14 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ContainerComp from "components/Container/ContainerComp";
 import { ColorModeSwitcher } from "ColorModeSwitcher";
 import { NavLinkStyled } from "./Header.styled";
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const auth = useAppSelector(selectorAuth);
   const {
     user: { name },
@@ -33,6 +34,7 @@ const Header: React.FC = () => {
 
   function onLogoutBtnClick(): void {
     if (!token) return;
+    navigate("/", { replace: true });
     dispatch<any>(userLogout(token));
   }
 

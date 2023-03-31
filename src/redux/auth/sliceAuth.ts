@@ -44,7 +44,8 @@ const AuthSlice = createSlice({
   extraReducers: (builder) =>
     builder
       //!logout
-      .addCase(userLogout.fulfilled, (state, { payload }) => {
+      .addCase(userLogout.fulfilled, (state) => {
+        state.isLoading = false;
         state.user.name = null;
         state.user.email = null;
         state.token = null;

@@ -23,6 +23,7 @@ interface ContactItemInterface {
 
 const ContactItem: React.FC<ContactItemInterface> = ({ id, name, number }) => {
   const dispatch = useAppDispatch();
+
   function handleDeleteBtnClick(event: any) {
     dispatch<any>(deleteContact(id));
   }

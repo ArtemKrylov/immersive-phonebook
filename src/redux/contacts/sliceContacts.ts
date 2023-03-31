@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf, PayloadAction } from "@reduxjs/toolkit";
 import { toast } from "react-hot-toast";
+import { userLogout } from "redux/auth/operationsAuth";
 
 import { Contact } from "../../models/contact";
 import { addContact, deleteContact, fetchContacts } from "./operationsContacts";
@@ -30,6 +31,7 @@ const ContactsSlice = createSlice({
     build
       //!Fetch all contacts
       .addCase(fetchContacts.fulfilled, (state, { payload }) => {
+        if (!payload) return;
         state.data = payload;
       })
 
@@ -43,6 +45,13 @@ const ContactsSlice = createSlice({
       //!Delete contact
       .addCase(deleteContact.fulfilled, (state, { payload }) => {
         state.data = state.data.filter((contact) => contact.id !== payload.id);
+      })
+
+      //!logout
+      .addCase(userLogout.fulfilled, (state) => {
+        state.data = [];
+        state.isLoading = false;
+        state.error = null;
       })
 
       //!Fulfilled matcher

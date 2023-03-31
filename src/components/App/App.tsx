@@ -9,7 +9,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Toaster } from "react-hot-toast";
 
 import { useAppSelector } from "hooks/useAppSelector";
-import { selectorAuth } from "redux/auth/selectorsAuth";
+import { selectorAuth, selectorNeedsToUpdate } from "redux/auth/selectorsAuth";
 import { useAppDispatch } from "hooks/useAppDispatch";
 
 //layoutes and pages lazy loading
@@ -67,18 +67,18 @@ const router = createBrowserRouter(
 
 const App: React.FC = () => {
   const { token } = useAppSelector(selectorAuth);
+  const needsToUpdate: boolean = useAppSelector(selectorNeedsToUpdate);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (token) {
+    if (token && needsToUpdate) {
       dispatch<any>(userUpdate(token));
     }
-  }, [token, dispatch]);
+  }, [token, dispatch, needsToUpdate]);
 
   return (
     <ChakraProvider theme={theme}>
       <RouterProvider router={router} />
-
       <div>
         <Toaster />
       </div>
