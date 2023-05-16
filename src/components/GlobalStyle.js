@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import 'modern-normalize/modern-normalize.css';
+import { createGlobalStyle } from "styled-components";
+import "modern-normalize/modern-normalize.css";
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -25,8 +25,6 @@ export const GlobalStyle = createGlobalStyle`
 	.app {
 		width: 100vw;
 		min-height: 100vh;
-		background-color: #52ACFF;
-		background-image: linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%);
 
 	}
 

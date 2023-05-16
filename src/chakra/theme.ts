@@ -16,6 +16,7 @@ const colors = {
   accent2: {
     700: "#805AD5",
   },
+  error: "#d00000",
   headerGradient: "linear-gradient(to right, #1cd8d2, #93edc7)",
 };
 

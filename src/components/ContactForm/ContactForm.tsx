@@ -10,7 +10,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const ContactForm = () => {
+const ContactForm: React.FC = () => {
   const dispatch = useAppDispatch();
 
   function onContactFormSubmit(event: any) {
