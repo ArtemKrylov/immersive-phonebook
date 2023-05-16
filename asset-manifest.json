@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/immersive-phonebook/static/js/main.3bd1e32d.js",
+    "main.js": "/immersive-phonebook/static/js/main.6b12d4bf.js",
     "static/js/862.27c7b726.chunk.js": "/immersive-phonebook/static/js/862.27c7b726.chunk.js",
     "static/js/417.b34a7925.chunk.js": "/immersive-phonebook/static/js/417.b34a7925.chunk.js",
     "static/js/628.27c7290e.chunk.js": "/immersive-phonebook/static/js/628.27c7290e.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/86.c6a0a75c.chunk.js": "/immersive-phonebook/static/js/86.c6a0a75c.chunk.js",
     "static/js/125.bd93a38f.chunk.js": "/immersive-phonebook/static/js/125.bd93a38f.chunk.js",
     "index.html": "/immersive-phonebook/index.html",
-    "main.3bd1e32d.js.map": "/immersive-phonebook/static/js/main.3bd1e32d.js.map",
+    "main.6b12d4bf.js.map": "/immersive-phonebook/static/js/main.6b12d4bf.js.map",
     "862.27c7b726.chunk.js.map": "/immersive-phonebook/static/js/862.27c7b726.chunk.js.map",
     "417.b34a7925.chunk.js.map": "/immersive-phonebook/static/js/417.b34a7925.chunk.js.map",
     "628.27c7290e.chunk.js.map": "/immersive-phonebook/static/js/628.27c7290e.chunk.js.map",
@@ -21,6 +21,6 @@
     "125.bd93a38f.chunk.js.map": "/immersive-phonebook/static/js/125.bd93a38f.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.3bd1e32d.js"
+    "static/js/main.6b12d4bf.js"
   ]
 }
