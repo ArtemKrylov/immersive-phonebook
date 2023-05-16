@@ -2,7 +2,7 @@
   "name": "immersive-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ArtemKrylov.github.io/Immersive_Phonebook/",
+  "homepage": "https://ArtemKrylov.github.io/immersive-phonebook/",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.6.1",
