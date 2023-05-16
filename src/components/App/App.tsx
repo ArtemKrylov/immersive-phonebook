@@ -31,7 +31,7 @@ const NoMatchPage: React.FC = lazy(
 );
 
 //basename for react-router
-const basename = "/goit-react-hw-08-phonebook";
+const basename = "/immersive-phonebook";
 
 //router and routes
 const router = createBrowserRouter(
